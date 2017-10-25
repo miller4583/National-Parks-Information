@@ -1,0 +1,35 @@
+﻿@using Capstone.Web.Models;
+@model Park
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">@Model.ParkName</h2>
+<h4 class="text-center">
+    "@Model.Quote"-<em>@Model.QuoteSource</em>
+</h4>
+<img src="@Url.Content("~/Content/img/" + Model.ParkCode +".jpg" )" />
+<div>
+    <p>@Model.ParkName  is located in @Model.State</p>
+    <p>@Model.Description</p>
+    <p>The park is @Model.Acreage acres large with an elevation of @Model.ElevationInFeet feel with @Model.MilesOfTrail  miles of trails!</p>
+    @{
+        if (Model.NumberOfCampSites == 0)
+        {
+            <p>Unfortunately the park has no campsites avaialbe to reserve and and the entry fee is  @Model.EntryFee.ToString("C")</p>
+        }
+        else
+        {
+            <p>Within the park there are @Model.NumberOfCampSites campsites avaialbe to reserve for up to two weeks(federal law states) and the entry fee is  @Model.EntryFee.ToString("C")</p>
+        }
+
+    }
+    <p>Founded in @Model.YearFounded with an annual tourist amount of @Model.AnnualVistors and promotes a local animal population of @Model.AnimalSpecies different species!</p>
+    <p>With a current Climate of @Model.Climate</p>
+    
+</div>
+
+
+
+

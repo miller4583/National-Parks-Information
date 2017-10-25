@@ -1,0 +1,27 @@
+﻿@using Capstone.Web.Models;
+@model List<Survey>
+@{
+    ViewBag.Title = "Favorites";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Favorites List</h2>
+
+@foreach (var p in Model)
+{
+
+    <div>
+        <p>
+            <a href="@Url.Action("Detail", "Home", new {parkID = p.ParkCode})">
+                <img src="@Url.Content("~/Content/img/" + p.ParkCode +".jpg" )" />
+            </a>
+        </p>
+        <p>@p.ParkName</p>
+        <p>
+            @p.Total
+        </p>
+        <hr />
+    </div>
+
+
+}
