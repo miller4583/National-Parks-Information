@@ -33,17 +33,24 @@ namespace Capstone.Web.Controllers
         //Get: Deatil Page <--one park by the park code/id
         public ActionResult Detail(string parkID)
         {
-            Park p = new Park();
-            p = dal.GetPark(parkID);
-            p.weather = dal.Weather(parkID);
-            return View("Detail", p);
+
+             Park p = new Park(); 
+            
+                Park ps = new Park();
+                p = dal.GetPark(parkID);
+                p.weather = dal.Weather(parkID);
+                p.IsFahrenheit = true;
+                return View("Detail", p);
+            
+            
         }
         
 
         public ActionResult TakeSurvey()
         {
-            
-            return View("TakeSurvey");
+            var parkCodes = sDAL.GetList();
+            ViewBag.ParkCodes = parkCodes;
+            return View("TakeSurvey" );
         }
 
 
@@ -56,6 +63,7 @@ namespace Capstone.Web.Controllers
             }
             else
             {
+                sDAL.GetList();
                 sDAL.InsertSurvey(s);
                 return RedirectToAction("Favorites");
             }

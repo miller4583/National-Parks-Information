@@ -9,7 +9,7 @@
 <h4 class="text-center">
     "@Model.Quote"-<em>@Model.QuoteSource</em>
 </h4>
-<img src="@Url.Content("~/Content/img/" + Model.ParkCode +".jpg" )" />
+<img class="small-image" src="@Url.Content("~/Content/img/" + Model.ParkCode +".jpg" )" />
 <div>
     <p>@Model.ParkName  is located in @Model.State</p>
     <p>@Model.Description</p>
@@ -17,7 +17,7 @@
     @{
         if (Model.NumberOfCampSites == 0)
         {
-            <p>Unfortunately the park has no campsites avaialbe to reserve and and the entry fee is  @Model.EntryFee.ToString("C")</p>
+            <p>Unfortunately the park has no campsites avaialbe to reserve and the entry fee is  @Model.EntryFee.ToString("C")</p>
         }
         else
         {
@@ -26,7 +26,7 @@
 
     }
     <p>Founded in @Model.YearFounded with an annual tourist amount of @Model.AnnualVistors and promotes a local animal population of @Model.AnimalSpecies different species!</p>
-    <p>With a current Climate of @Model.Climate</p>
+    <p>Which currently has @Model.Climate Climate</p>
 
 </div>
 
@@ -38,10 +38,29 @@
     {
         <div class="col-xs-12 col-sm-2 ">
             <p><img class="img-responsive" src="@Url.Content("~/Content/img/" + w.Forecast + ".png")" /></p>
-            <p>Day @w.FiveDayForecastValue</p>
 
-            <p>High  @w.High *F / @(Math.Round((w.High - 32) * .5555, 0))*C</p>
-            <p>Low  @w.Low *F / @(Math.Round((w.Low - 32) * .5555, 0))*F</p>
+            @if (w.FiveDayForecastValue == 1)
+            {
+                <p>Today's Weather</p>
+            }
+            else if(w.FiveDayForecastValue == 2)
+            {
+                <p>Tomorrow's Weather</p>
+            }
+            <p>High  @w.High °F / @(Math.Round((w.High - 32) * .5555, 0))°C</p>
+            <p>Low  @w.Low °F / @(Math.Round((w.Low - 32) * .5555, 0))°C</p>
+
+            @*@if (Model.IsFahrenheit)
+            {
+                <p>High  @w.High °F </p>
+                <p>Low  @w.Low °F </p>
+
+            }
+            else
+            {
+                <p> @(Math.Round((w.High - 32) * .5555, 0))°C</p>
+                <p>@(Math.Round((w.Low - 32) * .5555, 0))°C</p>
+            }*@
 
             @{if (w.Forecast == "snow")
                 {
@@ -75,3 +94,16 @@
         </div>
                 }
 </div>
+@*@if (Model.IsFahrenheit)
+{
+    
+<form action="@Url.Action("Detail", "Home",  new {parkID = Model.ParkCode})" method="get">
+    <button>Convert to Celsius</button>
+    </form>
+}
+else if (!Model.IsFahrenheit)
+{
+    <form action="@Url.Action("Detail", "Home", new {parkID = Model.ParkCode})" method="get">
+        <button>Convert to Fahrenheit</button>
+    </form>
+}*@

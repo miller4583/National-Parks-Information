@@ -5,23 +5,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Favorites List</h2>
+<h2 class="text-center">Favorite Parks</h2>
 
+@*<div class="row">*@
 @foreach (var p in Model)
 {
+    <div class="row">
 
-    <div>
-        <p>
+        <div class="col-sm-3">
             <a href="@Url.Action("Detail", "Home", new {parkID = p.ParkCode})">
-                <img src="@Url.Content("~/Content/img/" + p.ParkCode +".jpg" )" />
+                <img class="img-responsive" src="@Url.Content("~/Content/img/" + p.ParkCode +".jpg" )" />
             </a>
-        </p>
-        <p>@p.ParkName</p>
-        <p>
-            @p.Total
-        </p>
-        <hr />
+        </div>
+        <div class="col-sm-9">
+            <p class="vertical"><strong>@p.ParkName</strong> has a total of @p.Total survey(s)</p>
+        </div>
     </div>
-
-
+    <hr />
 }
+@*</div>*@

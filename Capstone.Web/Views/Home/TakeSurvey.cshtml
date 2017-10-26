@@ -5,30 +5,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>TakeSurvey</h2>
+<h2 class="text-center">Park Survey</h2>
 
 <form action="@Url.Action("TakeSurvey","Home")" method="post">
-
     <div>
-        @Html.LabelFor(m =>m.ParkCode)
-        @Html.DropDownListFor(m => m.ParkCode, Survey.parkCodes )        
+        <div class="form-group ">
+            @Html.LabelFor(m => m.ParkCode)
+            <span class="left">@Html.DropDownListFor(m => m.ParkCode, ViewBag.ParkCodes as List<SelectListItem>)</span>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            <span class="left">
+                @Html.TextBoxFor(m => m.Email)
+            </span>
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.State)
+            <span class="left">
+                @Html.TextBoxFor(m => m.State)
+            </span>
+            @Html.ValidationMessageFor(m => m.State)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ActivityLevel)
+            <span class="left">
+                @Html.TextAreaFor(m => m.ActivityLevel)
+            </span>
+            @Html.ValidationMessageFor(m => m.ActivityLevel)
+        </div>
     </div>
-    <div>
-        @Html.LabelFor(m=>m.Email)
-        @Html.TextBoxFor(m =>m.Email)
-        @Html.ValidationMessageFor(m=>m.Email)
+    <div class="text-center">
+        <button>Submit Survey</button>
     </div>
-    <div>
-        @Html.LabelFor(m => m.State)
-        @Html.TextBoxFor(m => m.State)
-        @Html.ValidationMessageFor(m => m.State)
-    </div>
-    <div>
-        @Html.LabelFor(m => m.ActivityLevel)
-        @Html.TextAreaFor(m => m.ActivityLevel)
-        @Html.ValidationMessageFor(m => m.ActivityLevel)
-    </div>
-    <button>HOW WAS YOUR TIME!!!!!! friend</button>
-
 </form>
 

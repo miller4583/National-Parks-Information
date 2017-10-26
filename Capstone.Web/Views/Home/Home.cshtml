@@ -4,18 +4,19 @@
     ViewBag.Title = "Home";
 }
 
-<h2 style="text-align:center">National Park Geek</h2>
+<h2 style="text-align:center">National Parks</h2>
 
 @foreach (var p in Model)
 {
 
     <div>
+        <p class="text-center"><strong>@p.ParkName</strong></p>
         <p>
             <a href="@Url.Action("Detail", "Home", new {parkID = p.ParkCode})">
-                <img src="@Url.Content("~/Content/img/" + p.ParkCode +".jpg" )" />
+                <img class="small-image" src="@Url.Content("~/Content/img/" + p.ParkCode +".jpg" )" />
             </a>
         </p>
-        <p><strong>@p.ParkName</strong></p>
+        
         <p>
             @p.Description
         </p>
