@@ -26,6 +26,8 @@ namespace Capstone.Web.Models
 
         public static List<SelectListItem> parkCodes { get; } = new List<SelectListItem>()
         {
+
+
             new SelectListItem(){Text ="Cuyahoga Valley National Park", Value = "CVNP" },
             new SelectListItem(){Text ="Everglades National Park", Value = "ENP" },
             new SelectListItem(){Text ="Grand Canyon National Park", Value = "GCNP" },

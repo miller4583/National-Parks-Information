@@ -27,9 +27,51 @@
     }
     <p>Founded in @Model.YearFounded with an annual tourist amount of @Model.AnnualVistors and promotes a local animal population of @Model.AnimalSpecies different species!</p>
     <p>With a current Climate of @Model.Climate</p>
-    
+
 </div>
 
 
+<h3 class="text-center">Five Day Forecast</h3>
+<div class="row">
 
+    @foreach (var w in Model.weather)
+    {
+        <div class="col-xs-12 col-sm-2 ">
+            <p><img class="img-responsive" src="@Url.Content("~/Content/img/" + w.Forecast + ".png")" /></p>
+            <p>Day @w.FiveDayForecastValue</p>
 
+            <p>High  @w.High *F / @(Math.Round((w.High - 32) * .5555, 0))*C</p>
+            <p>Low  @w.Low *F / @(Math.Round((w.Low - 32) * .5555, 0))*F</p>
+
+            @{if (w.Forecast == "snow")
+                {
+                    <p>Pack snowshoes!!</p>
+                }
+                else if (w.Forecast == "rain")
+                {
+                    <p>Pack raingear and wear waterproof shoes!!</p>
+                }
+                else if (w.Forecast == "thunderstorms")
+                {
+                    <p>Seek shelter and avoid hiking on exposed ridges!!</p>
+                }
+                else if (w.Forecast == "sunny")
+                {
+                    <p>Pack Sunblock!!</p>
+                }
+                if (w.High > 75)
+                {
+                    <p>Bring an extra gallon of water!</p>
+                }
+                if (w.High - w.Low > 20)
+                {
+                    <p>Wear breathable clothes.</p>
+                }
+                if (w.High < 20 || w.Low < 20)
+                {
+                    <p>WARNING Frigid Tempatures, wear appropriate clothing</p>
+                }
+            }
+        </div>
+                }
+</div>

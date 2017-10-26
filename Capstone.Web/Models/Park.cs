@@ -24,7 +24,15 @@ namespace Capstone.Web.Models
         public int AnimalSpecies { get; set; }
 
 
+        //public List<WeatherModel> Weather { get => weather; set => weather = value; }
+        public  List<WeatherModel> weather = new List<WeatherModel>();
+        //public string ParkCode { get; set; }
+        public int FiveDayForecastValue { get; set; }
+        public int Low { get; set; }
+        public int High { get; set; }
+        public string Forecast { get; set; }
 
+        public bool IsFahrenheit = true;
 
     }
 }

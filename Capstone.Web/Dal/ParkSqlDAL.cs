@@ -12,7 +12,9 @@ namespace Capstone.Web.Dal
     {
         private string ProductConnectionString = ConfigurationManager.ConnectionStrings["park"].ConnectionString;
         private const string Get_All_Parks = "Select * from park;";
-        private const string Get_Park = "Select * from park where park.ParkCode = @parkID;";
+        private const string Get_Park = "Select * from park join weather on park.parkcode = weather.parkcode where park.ParkCode = @parkID;";
+        private const string SQL_Weather = "Select * from weather where weather.parkCode = @parkCode;";
+
 
         public List<Park> GetAllParks()
         {
@@ -84,6 +86,12 @@ namespace Capstone.Web.Dal
                         p.Description = Convert.ToString(reader["parkDescription"]);
                         p.EntryFee = Convert.ToDouble(reader["entryFee"]);
                         p.AnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]);
+
+                        p.FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
+                        p.Low = Convert.ToInt32(reader["low"]);
+                        p.High = Convert.ToInt32(reader["high"]);
+                        p.Forecast = Convert.ToString(reader["forecast"]);
+
                         
                     }
                 }
@@ -93,6 +101,38 @@ namespace Capstone.Web.Dal
                 throw;
             }
             return p;
+        }
+
+
+        public List<WeatherModel> Weather(string ParkCode)
+        {
+            List<WeatherModel> weather = new List<WeatherModel>();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ProductConnectionString))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(SQL_Weather, conn);
+                    cmd.Parameters.AddWithValue("@parkCode", ParkCode);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        WeatherModel w = new WeatherModel();
+                        w.ParkCode = Convert.ToString(reader["parkCode"]);
+                        w.FiveDayForecastValue = Convert.ToInt32(reader["fiveDayForecastValue"]);
+                        w.Low = Convert.ToInt32(reader["low"]);
+                        w.High = Convert.ToInt32(reader["high"]);
+                        w.Forecast = Convert.ToString(reader["forecast"]);
+                        weather.Add(w);
+                    }
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return weather;
         }
     }
 }

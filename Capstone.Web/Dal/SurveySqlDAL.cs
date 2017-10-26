@@ -15,6 +15,7 @@ namespace Capstone.Web.Dal
         private const string Insert_Survey = "INSERT INTO survey_result VALUES(@parkCode, @emailAddress ,@state ,@activitLevel);";
         private const string Get_Surveys = "select count(survey_result.parkCode) as total, park.parkName, park.parkCode  from survey_result join park on park.parkCode = survey_result.parkCode group by park.parkName, park.parkCode order by parkName;";
 
+
         public void InsertSurvey(Survey s)
         {
             try

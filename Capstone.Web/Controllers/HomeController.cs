@@ -35,6 +35,7 @@ namespace Capstone.Web.Controllers
         {
             Park p = new Park();
             p = dal.GetPark(parkID);
+            p.weather = dal.Weather(parkID);
             return View("Detail", p);
         }
         
