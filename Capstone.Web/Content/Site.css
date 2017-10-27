@@ -18,4 +18,62 @@ textarea {
 .small-image{
     max-width: 35%;
 }
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*For home page image hover*/
+/*.container {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+    opacity: .3;
+}
+
+.container:hover .middle {
+    opacity: 4;
+}
+
+.text {
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}*/
+
+.title-head{
+    background-color:#808080;
+    color:#FFFAF0;
+    padding:0;
+    margin:0;
+}
+.hr-bold{
+    border-width:10px;
+}
+.pad {
+    padding: 10px 10px 10px 10px;
+}
 

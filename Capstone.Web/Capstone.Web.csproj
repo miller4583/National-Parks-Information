@@ -123,6 +123,7 @@
     <Content Include="Content\img\gnp.jpg" />
     <Content Include="Content\img\gsmnp.jpg" />
     <Content Include="Content\img\gtnp.jpg" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\mrnp.jpg" />
     <Content Include="Content\img\partly Cloudy.png" />
     <Content Include="Content\img\rain.png" />
