@@ -112,6 +112,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\ANP.jpg" />
+    <Content Include="Content\img\ANP2.jpg" />
+    <Content Include="Content\img\ASNP.jpg" />
+    <Content Include="Content\img\BBNP.jpg" />
+    <Content Include="Content\img\BNP.jpg" />
     <Content Include="Content\img\cloudy.png" />
     <Content Include="Content\img\cvnp.jpg" />
     <Content Include="Content\img\enp.jpg" />
