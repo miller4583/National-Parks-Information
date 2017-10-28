@@ -5,31 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">@Model.ParkName</h2>
+<h2 class="text-center title-head pad">@Model.ParkName</h2>
+
 <h4 class="text-center">
     "@Model.Quote"-<em>@Model.QuoteSource</em>
 </h4>
-<img class="small-image" src="@Url.Content("~/Content/img/" + Model.ParkCode +".jpg" )" />
+<img class="center-block img-rounded" src="@Url.Content("~/Content/img/" + Model.ParkCode +".jpg" )" />
 <div>
-    <p>@Model.ParkName  is located in @Model.State</p>
+    <p class="text-center pad">@Model.ParkName  is located in <strong>@Model.State</strong> </p>
     <p>@Model.Description</p>
-    <p>The park is @Model.Acreage acres large with an elevation of @Model.ElevationInFeet feel with @Model.MilesOfTrail  miles of trails!</p>
+    <p>The park is @Model.Acreage.ToString("N0") acres large with an elevation of @Model.ElevationInFeet.ToString("N0") feel with @Model.MilesOfTrail.ToString("N0")  miles of trails!</p>
     @{
         if (Model.NumberOfCampSites == 0)
         {
-            <p>Unfortunately the park has no campsites avaialbe to reserve and the entry fee is  @Model.EntryFee.ToString("C")</p>
+            <p>Unfortunately the park has no campsites avaialbe to reserve the entry fee is  @Model.EntryFee.ToString("C")</p>
         }
         else
         {
-            <p>Within the park there are @Model.NumberOfCampSites campsites avaialbe to reserve for up to two weeks(federal law states) and the entry fee is  @Model.EntryFee.ToString("C")</p>
+            <p>Within the park there are @Model.NumberOfCampSites.ToString("N0") campsites avaialbe to reserve for up to two weeks(federal law states) and the entry fee is  @Model.EntryFee.ToString("C")</p>
         }
 
     }
-    <p>Founded in @Model.YearFounded with an annual tourist amount of @Model.AnnualVistors and promotes a local animal population of @Model.AnimalSpecies different species!</p>
-    <p>Which currently has @Model.Climate Climate</p>
+    <p>Founded in @Model.YearFounded with an annual tourist amount of @Model.AnnualVistors.ToString("N0") and promotes a local animal population of @Model.AnimalSpecies.ToString("N0") different species!</p>
+    <p>@Model.ParkName has @Model.Climate Climate</p>
 
 </div>
-
+<hr class="hr-bold"/>
 
 <h3 class="text-center">Five Day Forecast</h3>
 <div class="row">
@@ -37,7 +38,7 @@
     @foreach (var w in Model.weather)
     {
         <div class="col-xs-12 col-sm-2 ">
-            <p><img class="img-responsive" src="@Url.Content("~/Content/img/" + w.Forecast + ".png")" /></p>
+            <p><img class="img-responsive  " src="@Url.Content("~/Content/img/" + w.Forecast + ".png")" /></p>
 
             @if (w.FiveDayForecastValue == 1)
             {

@@ -5,37 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">Park Survey</h2>
+<h2 class="text-center title-head pad">Park Survey</h2>
 
-<form action="@Url.Action("TakeSurvey","Home")" method="post">
-    <div>
+<form action="@Url.Action("TakeSurvey","Home")" class="text-center" method="post">
+    <div >
         <div class="form-group ">
             @Html.LabelFor(m => m.ParkCode)
-            <span class="left">@Html.DropDownListFor(m => m.ParkCode, ViewBag.ParkCodes as List<SelectListItem>)</span>
+            <span class="input-group center-block">@Html.DropDownListFor(m => m.ParkCode, ViewBag.ParkCodes as List<SelectListItem>)</span>
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.Email)
-            <span class="left">
+            <span class="input-group center-block">
                 @Html.TextBoxFor(m => m.Email)
             </span>
             @Html.ValidationMessageFor(m => m.Email)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.State)
-            <span class="left">
+            <span class="input-group center-block">
                 @Html.TextBoxFor(m => m.State)
             </span>
             @Html.ValidationMessageFor(m => m.State)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m.ActivityLevel)
-            <span class="left">
+            <span class="input-group center-block">
                 @Html.TextAreaFor(m => m.ActivityLevel)
             </span>
             @Html.ValidationMessageFor(m => m.ActivityLevel)
         </div>
     </div>
-    <div class="text-center">
+    <div class="text-center pad">
         <button>Submit Survey</button>
     </div>
 </form>
