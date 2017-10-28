@@ -43,6 +43,34 @@ INSERT INTO weather VALUES ('BBNP',3, 54,81,'partly cloudy');
 INSERT INTO weather VALUES ('BBNP',4, 55,82,'sunny');
 INSERT INTO weather VALUES ('BBNP',5, 58,83,'sunny');
 
+INSERT park VALUES('BNP2', 'Biscayne National Park', 'Florida', 172971, 9, 0, 20, 'Ocean', 1980, 514709, 'The parks are the Nations pleasure grounds and the Nations restoring places.... The national parks...are an American idea; it is one thing we have that has not been imported', 'J. Horace McFarland', 'Located in Biscayne Bay, this park at the north end of the Florida Keys has four interrelated marine ecosystems: mangrove forest, the Bay, the Keys, and coral reefs. Threatened animals include the West Indian manatee, American crocodile, various sea turtles, and peregrine falcon.', 0, 525);
+INSERT INTO weather VALUES ('BNP2',1, 67,75,'sunny');
+INSERT INTO weather VALUES ('BNP2',2, 63,75,'sunny');
+INSERT INTO weather VALUES ('BNP2',3, 74,81,'partly cloudy');
+INSERT INTO weather VALUES ('BNP2',4, 73,82,'sunny');
+INSERT INTO weather VALUES ('BNP2',5, 71,83,'sunny');
+
+INSERT park VALUES('BCOTGNP', 'Black Canyon of the Gunnison', 'Colorado', 30749, 7913, 8, 118,  'Mountain',1999, 238018, 'We who are gathered here may represent a particularly elite, not of money and power, but of concern for the earth for the earth’s sake.', 'Ansel Adams', 'The park protects a quarter of the Gunnison River, which slices sheer canyon walls from dark Precambrian-era rock. The canyon features some of the steepest cliffs and oldest rock in North America, and is a popular site for river rafting and rock climbing. The deep, narrow canyon is composed of gneiss and schist which appears black when in shadow.', 15, 67 );
+INSERT INTO weather VALUES ('BCOTGNP',1, 28,51,'sunny');
+INSERT INTO weather VALUES ('BCOTGNP',2, 32,55,'partly cloudy');
+INSERT INTO weather VALUES ('BCOTGNP',3, 33,61,'partly cloudy');
+INSERT INTO weather VALUES ('BCOTGNP',4, 34,57,'sunny');
+INSERT INTO weather VALUES ('BCOTGNP',5, 32,62,'sunny');
+
+INSERT park VALUES('BCNP', 'Bryce Canyon National Park', 'Utah', 35835, 8357, 45, 101, 'Arid', 1928, 2365110, 'One touch of nature makes the whole world kin.', 'John Muir', 'Bryce Canyon is a geological amphitheater on the Paunsaugunt Plateau with hundreds of tall, multicolored sandstone hoodoos formed by erosion. The region was originally settled by Native Americans and later by Mormon pioneers.', 30, 135);
+INSERT INTO weather VALUES ('BCNP',1, 28,57,'sunny');
+INSERT INTO weather VALUES ('BCNP',2, 32,55,'partly cloudy');
+INSERT INTO weather VALUES ('BCNP',3, 29,61,'partly cloudy');
+INSERT INTO weather VALUES ('BCNP',4, 26,57,'sunny');
+INSERT INTO weather VALUES ('BCNP',5, 22,62,'partly cloudy');
+
+INSERT park VALUES('CNP', 'Canyonlands National Park', 'Utah', 337597, 5920, 83, 42, 'Plateau', 1964, 776218, 'National parks and reserves are an integral aspect of intelligent use of natural resources. It is the course of wisdom to set aside an ample portion of our natural resources as national parks and reserves, thus ensuring that future generations may know the majesty of the earth as we know it today.' , 'John F. Kennedy', 'This landscape was eroded into a maze of canyons, buttes, and mesas by the combined efforts of the Colorado River, Green River, and their tributaries, which divide the park into three districts. The park also contains rock pinnacles and arches, as well as artifacts from Ancient Pueblo peoples', 10, 98);
+INSERT INTO weather VALUES ('CNP',1, 35,67,'sunny');
+INSERT INTO weather VALUES ('CNP',2, 32,75,'partly cloudy');
+INSERT INTO weather VALUES ('CNP',3, 39,71,'partly cloudy');
+INSERT INTO weather VALUES ('CNP',4, 36,67,'sunny');
+INSERT INTO weather VALUES ('CNP',5, 32,72,'partly cloudy');
+
 DELETE from  weather where parkCode = 'ASNP';
 
 select * from weather;

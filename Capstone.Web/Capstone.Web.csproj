@@ -115,7 +115,10 @@
     <Content Include="Content\img\ANP2.jpg" />
     <Content Include="Content\img\ASNP.jpg" />
     <Content Include="Content\img\BBNP.jpg" />
+    <Content Include="Content\img\BCNP.jpg" />
+    <Content Include="Content\img\BCOTGNP.jpg" />
     <Content Include="Content\img\BNP.jpg" />
+    <Content Include="Content\img\BNP2.jpg" />
     <Content Include="Content\img\cloudy.png" />
     <Content Include="Content\img\cvnp.jpg" />
     <Content Include="Content\img\enp.jpg" />
@@ -123,6 +126,7 @@
     <Content Include="Content\img\gnp.jpg" />
     <Content Include="Content\img\gsmnp.jpg" />
     <Content Include="Content\img\gtnp.jpg" />
+    <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\mrnp.jpg" />
     <Content Include="Content\img\partly Cloudy.png" />
     <Content Include="Content\img\rain.png" />
